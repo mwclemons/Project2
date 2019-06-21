@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var BossCharacters = sequelize.define("bossCharacters", {
     name: DataTypes.STRING,
+    image: DataTypes.STRING,
     health: DataTypes.INTEGER,
     attack: DataTypes.INTEGER,
     defense: DataTypes.INTEGER,
