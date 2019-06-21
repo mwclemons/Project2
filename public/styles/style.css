@@ -1,5 +1,7 @@
 body {
-    background: url("nightscene.jpg");
+    background: url("../images/nightscene.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .jumbotron {
