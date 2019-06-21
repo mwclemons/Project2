@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "kenmore71",
-    "database": "exampledb",
+    "password": "snizz11bre",
+    "database": "fightClub",
     "host": "localhost",
     "dialect": "mysql"
   },
