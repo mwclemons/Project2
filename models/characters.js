@@ -1,14 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
-  var characters = sequelize.define("Characters", {
+  var Characters = sequelize.define("Characters", {
     name: DataTypes.STRING,
-    health: DataTypes.INT,
-    attack: DataTypes.INT,
-    defense: DataTypes.INT,
+    health: DataTypes.INTEGER,
+    attack: DataTypes.INTEGER,
+    defense: DataTypes.INTEGER,
     special: DataTypes.STRING,
-    specialInterval: DataTypes.INT,
-    name: DataTypes.STRING   
+    specialInterval: DataTypes.INTEGER
   });
-  return characters;
-
+  return Characters;
 };
-
