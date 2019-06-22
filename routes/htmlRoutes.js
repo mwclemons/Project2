@@ -12,15 +12,12 @@ module.exports = function(app) {
   });
 
   app.get("/fight:id", function(req, res) {
-    db.Characters.findAll({ where: { id: req.params.id } }).then(function(
-      data
-    ) {
-      var hbsObject = {
-        char: data
-      };
-      console.log(hbsObject);
-      res.render("fight", hbsObject[0]);
-    });
+    db.Characters.findAll({ raw: true, where: { id: req.params.id } }).then(
+      function(data) {
+        console.log(data[0]);
+        res.render("fight", data[0]);
+      }
+    );
   });
 
   // Render 404 page for any unmatched routes
