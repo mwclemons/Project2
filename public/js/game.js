@@ -1,7 +1,6 @@
 // $(".dropdown-menu a").click(function(){
 //   $("#dropdownMenuLink").text($(this).text());
 // });
-
 var myHP;
 var myATK;
 var myDEF;
@@ -17,6 +16,11 @@ var bossCoolInterval;
 var bossCurrentCool;
 
 $("#atk-btn").click(function() {
+
+  var sndAttack = new Audio();
+  sndAttack.src = "../audio/metal_thud.ogg";
+  sndAttack.play();
+  
   myHP = parseInt($("#my-health").html());
   myATK = parseInt($("#char-attack").html());
   myDEF = parseInt($("#char-defense").html());
@@ -54,6 +58,11 @@ $("#atk-btn").click(function() {
 });
 
 $("#def-btn").click(function() {
+  
+  var sndDefend = new Audio();
+  sndDefend.src = "../audio/windshield_hit_with_bar.ogg";
+  sndDefend.play();
+
   myHP = parseInt($("#my-health").html());
   myATK = parseInt($("#char-attack").html());
   myDEF = parseInt($("#char-defense").html());
@@ -90,10 +99,14 @@ $("#def-btn").click(function() {
 
 $("#spc-btn").click(function() {
   if ($("#spc-btn").hasClass("disabled")) {
-    // Send message that it is in cooldown
-    console.log("SPECIAL PUSHED - DISABLED");
+    var sndWait = new Audio();
+    sndWait.src = "../audio/beep_short.ogg";
+    sndWait.play();
   } else {
-    console.log("SPECIAL PUSHED - NOT DISABLED");
+    var sndSpecial = new Audio();
+    sndSpecial.src = "../audio/Synthetic_Insects.mp3";
+    sndSpecial.play();
+  
 
     myHP = parseInt($("#my-health").html());
     myATK = parseInt($("#char-attack").html());

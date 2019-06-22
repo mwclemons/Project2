@@ -2,6 +2,13 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 
+const {
+  actionssdk,
+  Image,
+} = require ('actions-on-google');
+
+const act = actionssdk();
+
 var db = require("./models");
 
 var app = express();
@@ -15,6 +22,22 @@ app.use(express.static("public"));
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+act.intent("actions.intent.MAIN", conv => {
+  conv.ask("Which character do you choose?");
+  conv.ask("Here is a picture of your character");
+  conv.ask(new Image({
+    url: 'https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/imgs/160204193356-01-cat-500.jpg',
+    alt: "a cat",
+  }));
+});
+
+act.intent("actions.intent.TEXT", (conv, input) => {
+  if (input === "bye" || input === "goodbye") {
+    return conv.close("See you later!")
+  }
+  conv.ask("I didn't undestand. Can you tell e something else?");
+});
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -40,3 +63,4 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
+module.exports = act;
