@@ -28,9 +28,9 @@
   <div class="col-md-1">
     <div class="btn-group-vertical">
       
-      <button aria-label="Do {{attack}} damage!" data-balloon-pos="right" type="button" class="btn btn-outline-danger btn-sm" id="atk-btn">Attack</button>
-      <button aria-label="Prevent {{defense}} damage." data-balloon-pos="right" type="button" class="btn btn-outline-success btn-sm" id="def-btn">Defend</button>
-      <button aria-label="Special {{special}} stuff." data-balloon-pos="right" type="button" class="btn btn-outline-info btn-sm disabled" id="spc-btn">Special</button>
+      <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="tooltip" data-placement="right"  title="Do {{attack}} damage" id="atk-btn">Attack</button>
+      <button class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="right" title="Prevent {{defense}} damage" id="def-btn">Defend</button>
+      <button class="btn btn-outline-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="right" title="{{special}}" id="spc-btn">Special</button>
       <p class="text-center text-info special-cooldown">{{specialInterval}}</p>
       
     </div>
