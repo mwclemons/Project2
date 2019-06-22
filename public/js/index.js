@@ -15,7 +15,9 @@ var API = {
       url: "api/examples",
       data: JSON.stringify(example)
     });
+   
   },
+  
   getExamples: function() {
     return $.ajax({
       url: "api/examples",
@@ -80,7 +82,17 @@ var handleFormSubmit = function(event) {
 
   $exampleText.val("");
   $exampleDescription.val("");
+
+ 
 };
+
+// var playAudio = function (assistant) {
+//   let text_to_speech = '<speak>'
+//     + 'I can play a sound'
+//     + '<audio src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg">a digital watch alarm</audio>. '
+//     + '</speak>'
+//   assistant.tell(text_to_speech);
+// };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
@@ -93,6 +105,9 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+
+// const submitSound = new Audio("../public/audio/Synthetic_Insects.mp3");
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

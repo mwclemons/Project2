@@ -1,3 +1,14 @@
+
+
+
+ <nav>
+        <button onclick="attackContent(1)">Attack</button>
+        <button onclick="defendContent(1)">Defend</button>
+        <button onclick="specialContent(1)">Special</button>
+        <button onclick="waitContent(1)">Wait</button>
+        <button onclick="alarmContent(1)">Alarm</button>
+</nav>
+
 <div id="home">
   <div class="container">
     <div class="row">
@@ -13,7 +24,7 @@
             <label for="example-description">Example Description</label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button onclick="bgContent(1)" id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
@@ -31,3 +42,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
