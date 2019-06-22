@@ -12,11 +12,14 @@ module.exports = function(app) {
   });
 
   app.get("/fight:id", function(req, res) {
-    db.Characters.findAll({ where: { id: req.params.id } }).then(function(data) {
-      // var hbsObject = {
-      //   char: data
-      // };
-      res.render("fight");
+    db.Characters.findAll({ where: { id: req.params.id } }).then(function(
+      data
+    ) {
+      var hbsObject = {
+        char: data
+      };
+      console.log(hbsObject);
+      res.render("fight", hbsObject[0]);
     });
   });
 
