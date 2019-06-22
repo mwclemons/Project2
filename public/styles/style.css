@@ -1,0 +1,92 @@
+body {
+    background: url("../images/nightscene.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    font-family: 'Nosifer', cursive;
+    color:red;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.2); 
+    height: 250px;
+    
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h3 {
+    font-size: 24px;
+    color: red;
+    width: 900px;
+}
+
+#dropdownMenuLink {
+    margin-right: 50px;
+}
+
+#players {
+    width: 900px;
+    margin-bottom: 200px;
+}
+
+.btn btn-danger {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 75px;
+}
+
+#fight {
+    margin-left:550px;
+    margin-bottom:50px;
+}
+
+#arena {
+    background-color: rgb(0,0,0,.7);
+    height: 300px;
+    margin-bottom: 0px;
+}
+
+.btn-group-vertical {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+p {
+    color: limegreen;
+    font-size: 18px;
+}
+
+#HP {
+    color: limegreen;
+    font-size: 20px;
+}
+
+.row {
+    font-family: 'Patua One', cursive;
+}
+
+.rollIn {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    height: 270px;
+}
+
+.boss-image {
+    height: 270px;
+}
+
+.special-cooldown {
+    font-size: 12px;
+}
+
+.char-attr{
+    display: none;
+}

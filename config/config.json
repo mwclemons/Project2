@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "35l4eJazz",
-    "database": "exampledb",
+    "database": "fightClub",
     "host": "localhost",
     "dialect": "mysql"
   },
