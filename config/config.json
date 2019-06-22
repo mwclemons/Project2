@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< Updated upstream
     "password": "snizz11bre",
-=======
-    "password": "kenmore71",
->>>>>>> Stashed changes
     "database": "fightClub",
     "host": "localhost",
     "dialect": "mysql"

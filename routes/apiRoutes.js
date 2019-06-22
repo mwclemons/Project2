@@ -17,7 +17,9 @@ module.exports = function(app) {
 
   // Get character by id
   app.get("/api/characters/:id", function(req, res) {
-    db.Characters.findAll({ where: { id: req.params.id } }).then(function(data) {
+    db.Characters.findAll({ where: { id: req.params.id } }).then(function(
+      data
+    ) {
       res.json(data);
     });
   });
