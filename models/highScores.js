@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var HighScores = sequelize.define("highScores", {
+  var HighScores = sequelize.define("HighScores", {
     name: DataTypes.STRING,
     characterUsed: DataTypes.STRING,
     score: DataTypes.INTEGER
