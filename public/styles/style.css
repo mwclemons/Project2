@@ -69,7 +69,7 @@ p {
     font-family: 'Patua One', cursive;
 }
 
-.character-image {
+.rollIn {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
