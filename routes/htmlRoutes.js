@@ -14,8 +14,16 @@ module.exports = function(app) {
   app.get("/fight:id", function(req, res) {
     db.Characters.findAll({ raw: true, where: { id: req.params.id } }).then(
       function(data) {
-        console.log(data[0]);
-        res.render("fight", data[0]);
+        db.BossCharacters.findAll({ raw: true, where: { id: 1 } }).then(
+          function(bossdata) {
+            var matchupData = {
+              mycharacter: data,
+              bosscharacter: bossdata
+            };
+            console.log(matchupData);
+            res.render("fight", matchupData);
+          }
+        );
       }
     );
   });

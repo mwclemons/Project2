@@ -1,42 +1,67 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
       <h1>Fight Club</h1>
+      <p class="lead" id="fight-narrator">Welcome to Fight Club!! <br>Each round, you will select your character's action. <br>Select your first action now!! </p>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-3 text-center" id="fight">
-    <button type="button" class="btn btn-danger">Fight</button>
-  </div>
-</div>
 <div class="row justify-content-between" id="HP">
     <div class="col-4 text-center">
-      <strong>Health Points</strong>(Player One):    
+      {{#mycharacter}}
+      <strong>Health Points</strong>(Player One):
+      <p id="my-health">{{health}}</p>
+      {{/mycharacter}}    
     </div>
     <div class="col-4 text-center">
-      <strong>Current Score:      </strong>    
+      <strong>Current Score:      </strong>  
+      <p id="score">0</p>  
     </div>
     <div class="col-4 text-center">
+      {{#bosscharacter}}
       <strong>Health Points</strong>(Boss):
+      <p id="boss-health">{{health}}</p>
+      {{/bosscharacter}}
     </div>
   </div>
 <div class="row" id="arena">
+  {{#mycharacter}}
   <div class="col-md-1">
     <div class="btn-group-vertical">
-      <button type="button" class="btn btn-outline-danger btn-sm">Attack</button>
-      <button type="button" class="btn btn-outline-success btn-sm">Defend</button>
-      <button type="button" class="btn btn-outline-info btn-sm">Special</button>
+      
+      <button type="button" class="btn btn-outline-danger btn-sm" id="atk-btn">Attack</button>
+      <button type="button" class="btn btn-outline-success btn-sm" id="def-btn">Defend</button>
+      <button type="button" class="btn btn-outline-info btn-sm disabled" id="spc-btn">Special</button>
+      <p class="text-center text-info special-cooldown">{{specialInterval}}</p>
+      
     </div>
   </div>
+  
   <div class="col-md-2">
-    {{name}}
     <img class = "character-image" src="{{image}}">
+      <p class="char-attr" id="char-attack">{{attack}}</p>
+      <p class="char-attr" id="char-defense">{{defense}}</p>
+      <p class="char-attr" id="char-special">{{special}}</p>
+      <p class="char-attr" id="char-specialInterval">{{specialInterval}}</p>
   </div>
+  {{/mycharacter}}
+  <div class="col-6"></div>
+  {{#bosscharacter}}
+  <div class="col-md-2">
+    <img class = "boss-image" src="{{image}}">
+      <p class="char-attr" id="boss-attack">{{attack}}</p>
+      <p class="char-attr" id="boss-defense">{{defense}}</p>
+      <p class="char-attr" id="boss-special">{{special}}</p>
+      <p class="char-attr" id="boss-specialInterval">{{specialInterval}}</p>
+  </div>
+  <div class="col-md-1">
+    <p class="text-center text-info special-cooldown">{{specialInterval}}</p>
+  </div>
+  {{/bosscharacter}}
 </div>
     
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/game.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
