@@ -31,13 +31,13 @@
       <button type="button" class="btn btn-outline-danger btn-sm" id="atk-btn">Attack</button>
       <button type="button" class="btn btn-outline-success btn-sm" id="def-btn">Defend</button>
       <button type="button" class="btn btn-outline-info btn-sm disabled" id="spc-btn">Special</button>
-      <p class="text-center text-info special-cooldown">{{specialInterval}}</p>
+      <p class="text-center text-info special-cooldown" id="my-cooldown">{{specialInterval}}</p>
       
     </div>
   </div>
   
   <div class="col-md-2">
-    <img class = "character-image" src="{{image}}">
+    <img class = "character-image" id="img-char" src="{{image}}">
       <p class="char-attr" id="char-attack">{{attack}}</p>
       <p class="char-attr" id="char-defense">{{defense}}</p>
       <p class="char-attr" id="char-special">{{special}}</p>
@@ -47,14 +47,14 @@
   <div class="col-6"></div>
   {{#bosscharacter}}
   <div class="col-md-2">
-    <img class = "boss-image" src="{{image}}">
+    <img class = "boss-image" id="img-boss" src="{{image}}">
       <p class="char-attr" id="boss-attack">{{attack}}</p>
       <p class="char-attr" id="boss-defense">{{defense}}</p>
       <p class="char-attr" id="boss-special">{{special}}</p>
       <p class="char-attr" id="boss-specialInterval">{{specialInterval}}</p>
   </div>
   <div class="col-md-1">
-    <p class="text-center text-info special-cooldown">{{specialInterval}}</p>
+    <p class="text-center text-info special-cooldown" id="boss-cooldown">{{specialInterval}}</p>
   </div>
   {{/bosscharacter}}
 </div>
