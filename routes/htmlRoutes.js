@@ -11,19 +11,28 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/fight:id", function(req, res) {
+  app.get("/fight:id&:bossid&:score&:hp", function(req, res) {
     db.Characters.findAll({ raw: true, where: { id: req.params.id } }).then(
       function(data) {
-        db.BossCharacters.findAll({ raw: true, where: { id: 1 } }).then(
-          function(bossdata) {
-            var matchupData = {
-              mycharacter: data,
-              bosscharacter: bossdata
-            };
-            console.log(matchupData);
-            res.render("fight", matchupData);
+        db.BossCharacters.findAll({
+          raw: true,
+          where: { id: req.params.bossid }
+        }).then(function(bossdata) {
+          var hp;
+          if (parseInt(req.params.score) === 0) {
+            hp = data[0].health;
+          } else {
+            hp = req.params.hp;
           }
-        );
+
+          var matchupData = {
+            mycharacter: data,
+            bosscharacter: bossdata,
+            score: req.params.score,
+            hp: hp
+          };
+          res.render("fight", matchupData);
+        });
       }
     );
   });

@@ -7,14 +7,14 @@
 
 <div class="row justify-content-between" id="HP">
     <div class="col-4 text-center">
-      {{#mycharacter}}
-      <strong>Health Points</strong>(Player One):
-      <p id="my-health">{{health}}</p>
-      {{/mycharacter}}    
+      {{!-- {{#mycharacter}} --}}
+        <strong>Health Points</strong>(Player One):
+        <p id="my-health">{{hp}}</p>
+      {{!-- {{/mycharacter}}   --}}
     </div>
     <div class="col-4 text-center">
       <strong>Current Score:      </strong>  
-      <p id="score">0</p>  
+      <p id="score">{{score}}</p>  
     </div>
     <div class="col-4 text-center">
       {{#bosscharacter}}
@@ -28,7 +28,7 @@
   <div class="col-md-1">
     <div class="btn-group-vertical">
       
-      <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="tooltip" data-placement="right"  title="Do {{attack}} damage" id="atk-btn">Attack</button>
+      <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="tooltip" data-placement="right"  title="Do MAX {{attack}} damage" id="atk-btn">Attack</button>
       <button class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="right" title="Prevent {{defense}} damage" id="def-btn">Defend</button>
       <button class="btn btn-outline-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="right" title="{{special}}" id="spc-btn">Special</button>
       <p class="text-center text-info special-cooldown" id="my-cooldown">{{specialInterval}}</p>
@@ -41,7 +41,9 @@
       <p class="char-attr" id="char-attack">{{attack}}</p>
       <p class="char-attr" id="char-defense">{{defense}}</p>
       <p class="char-attr" id="char-special">{{special}}</p>
+      <p class="char-attr" id="char-originalhp">{{health}}</p>
       <p class="char-attr" id="char-specialInterval">{{specialInterval}}</p>
+      <p class="char-attr" id="char-id">{{id}}</p>
   </div>
   {{/mycharacter}}
   <div class="col-6"></div>
@@ -51,7 +53,9 @@
       <p class="char-attr" id="boss-attack">{{attack}}</p>
       <p class="char-attr" id="boss-defense">{{defense}}</p>
       <p class="char-attr" id="boss-special">{{special}}</p>
+      <p class="char-attr" id="boss-originalhp">{{health}}</p>
       <p class="char-attr" id="boss-specialInterval">{{specialInterval}}</p>
+      <p class="char-attr" id="boss-id">{{id}}</p>
   </div>
   <div class="col-md-1">
     <p class="text-center text-info special-cooldown" id="boss-cooldown">{{specialInterval}}</p>
@@ -62,7 +66,6 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/game.js"></script>
-{{!-- <script src="/js/sound.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
