@@ -55,6 +55,17 @@ h3 {
     margin-left: 20px;
 }
 
+.table {
+    color: limegreen;
+    font-size: 15px;
+}
+
+#highscores {
+    color: limegreen;
+    font-size: 30px;
+    font-family: 'Nosifer', cursive;
+}
+
 p {
     color: limegreen;
     font-size: 18px;
@@ -69,7 +80,7 @@ p {
     font-family: 'Patua One', cursive;
 }
 
-.rollIn {
+.char-image {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);

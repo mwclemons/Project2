@@ -2,6 +2,17 @@ $(".dropdown-menu a").click(function() {
   $("#dropdownMenuLink").text($(this).text());
 });
 
+$(document).ready(function() {
+  updateVariables();
+  if (myCurrentCool === 0) {
+    $("#spc-btn").removeClass("disabled");
+  }
+});
+
+$("#enter-name").click(function() {
+  $("#gameover-modal").modal("hide");
+});
+
 var myScore;
 
 var myHP;
@@ -72,12 +83,12 @@ function evaluateCharSpecial() {
     updateNarrator(50, bossATK, 0, 0);
   } else if (mySPC === "Heal 50%") {
     myHP = myHP + parseInt(myOriginalHP * 0.5);
-    updateScore(myOriginalHP * 0.5);
+    // updateScore(myOriginalHP * 0.5);
     evaluateBossSpecial(0);
     updateNarrator(0, bossATK, 0, myOriginalHP * 0.5);
   } else if (mySPC === "Heal 25%") {
     myHP = myHP + parseInt(myOriginalHP * 0.25);
-    updateScore(myOriginalHP * 0.25);
+    // updateScore(myOriginalHP * 0.25);
     evaluateBossSpecial(0);
     updateNarrator(0, bossATK, 0, myOriginalHP * 0.25);
   }
@@ -93,16 +104,19 @@ function updateNarrator(attack, bossAttack, defense, heal) {
         " damage."
     );
   } else if (defense) {
-    if (defense > bossAttack) {
-      defense = bossAttack;
+    if (defense >= bossAttack) {
+      $("#fight-narrator").html(
+        "You prevented " + Math.round(defense) + " damage."
+      );
+    } else {
+      $("#fight-narrator").html(
+        "You prevented " +
+          Math.round(defense) +
+          " damage, but still suffered " +
+          Math.round(bossAttack - defense) +
+          " damage."
+      );
     }
-    $("#fight-narrator").html(
-      "You prevented " +
-        Math.round(defense) +
-        " damage, but still suffered " +
-        Math.round(bossAttack - defense) +
-        " damage."
-    );
   } else if (heal) {
     $("#fight-narrator").html(
       "You healed " +
@@ -116,11 +130,30 @@ function updateNarrator(attack, bossAttack, defense, heal) {
 
 function evaluateGameStatus(myHealth, bossHealth) {
   if (myHealth <= 0) {
-    alert("GAME OVER You Lose");
+    // location.href = "/gameover";
+    $.get("/api/scores10", function(data, status){
+      var lowestHighScore = JSON.stringify(data[0].score);
+
+      if (lowestHighScore > myScore) {
+        location.href = "/gameover";
+      } else {
+        $("#gameover-modal").modal();
+      }
+    });
   } else if (bossHealth <= 0) {
     myScore = parseInt($("#score").html());
     bossID++;
-    location.href = "/fight" + myID + "&" + bossID + "&" + myScore + "&" + myHealth;
+    location.href =
+      "/fight" +
+      myID +
+      "&" +
+      bossID +
+      "&" +
+      myScore +
+      "&" +
+      myHealth +
+      "z" +
+      myCurrentCool;
   }
 }
 
@@ -175,7 +208,7 @@ $("#def-btn").click(function() {
   }
   $("#boss-cooldown").html(bossCurrentCool);
   $("#my-cooldown").html(myCurrentCool);
-  updateScore(myDEF);
+  // updateScore(myDEF);
   updateNarrator(0, bossATK, myDEF, 0);
   evaluateGameStatus(
     parseInt($("#my-health").html()),
@@ -195,7 +228,6 @@ $("#spc-btn").click(function() {
 
     updateVariables();
     evaluateCharSpecial();
-    // evaluateBossSpecial(0);
 
     $("#spc-btn").addClass("disabled");
     myCurrentCool = myCoolInterval;

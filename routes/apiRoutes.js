@@ -10,7 +10,15 @@ module.exports = function(app) {
 
   // Create a new score
   app.post("/api/newscore", function(req, res) {
-    db.highscores.create(req.body).then(function(data) {
+    db.HighScores.create(req.body).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  app.get("/api/scores:id", function(req, res) {
+    db.HighScores.findAll({ where: { id: req.params.id } }).then(function(
+      data
+    ) {
       res.json(data);
     });
   });

@@ -7,10 +7,8 @@
 
 <div class="row justify-content-between" id="HP">
     <div class="col-4 text-center">
-      {{!-- {{#mycharacter}} --}}
-        <strong>Health Points</strong>(Player One):
-        <p id="my-health">{{hp}}</p>
-      {{!-- {{/mycharacter}}   --}}
+      <strong>Health Points</strong>(Player One):
+      <p id="my-health">{{hp}}</p>
     </div>
     <div class="col-4 text-center">
       <strong>Current Score:      </strong>  
@@ -31,13 +29,14 @@
       <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="tooltip" data-placement="right"  title="Do MAX {{attack}} damage" id="atk-btn">Attack</button>
       <button class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="right" title="Prevent {{defense}} damage" id="def-btn">Defend</button>
       <button class="btn btn-outline-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="right" title="{{special}}" id="spc-btn">Special</button>
-      <p class="text-center text-info special-cooldown" id="my-cooldown">{{specialInterval}}</p>
+  {{/mycharacter}}    
+      <p class="text-center text-info special-cooldown" id="my-cooldown">{{cd}}</p>
       
     </div>
   </div>
-  
+  {{#mycharacter}}
   <div class="col-md-2">
-    <img class = "character-image animated rollIn" src="{{image}}">
+    <img class = "char-image animated rollIn" src="{{image}}">
       <p class="char-attr" id="char-attack">{{attack}}</p>
       <p class="char-attr" id="char-defense">{{defense}}</p>
       <p class="char-attr" id="char-special">{{special}}</p>
@@ -62,7 +61,35 @@
   </div>
   {{/bosscharacter}}
 </div>
-    
+
+<div class="modal fade" id="gameover-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Congratulations!!! <br>You have a new High Score. <br>Enter your name below.</h5>
+        {{!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> --}}
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            {{!-- <label for="recipient-name" class="col-form-label">Recipient:</label> --}}
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            {{!-- <label for="message-text" class="col-form-label">Message:</label> --}}
+            {{!-- <textarea class="form-control" id="message-text"></textarea> --}}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        {{!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+        <button type="button" class="btn btn-primary" id="enter-name">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/game.js"></script>
