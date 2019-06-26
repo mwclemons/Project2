@@ -12,8 +12,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+// app.engine('.hbs', exphbs({
+//   extname: '.hbs',
+//   helpers: require('./config/handlebars-helpers') //only need this
+// }));
+
 // Handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+    helpers: require("./config/handlebars-helpers")
+  })
+);
 app.set("view engine", "handlebars");
 
 // Routes

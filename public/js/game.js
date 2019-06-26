@@ -11,6 +11,14 @@ $(document).ready(function() {
 
 $("#enter-name").click(function() {
   $("#gameover-modal").modal("hide");
+
+  $.post(
+    "/api/newscore",
+    { name: $("#player-name").val(), characterUsed: myName, score: myScore },
+    function() {
+      location.href = "/gameover";
+    }
+  );
 });
 
 var myScore;
@@ -23,6 +31,7 @@ var mySPC;
 var myCoolInterval;
 var myCurrentCool;
 var myID;
+var myName;
 
 var bossHP;
 // var bossOriginalHP;
@@ -32,6 +41,7 @@ var bossSPC;
 var bossCoolInterval;
 var bossCurrentCool;
 var bossID;
+// var bossName;
 
 function updateScore(increaseScoreBy) {
   myScore = parseInt($("#score").html());
@@ -47,6 +57,7 @@ function updateVariables() {
   myCoolInterval = parseInt($("#char-specialInterval").html());
   myCurrentCool = parseInt($("#my-cooldown").html());
   myID = parseInt($("#char-id").html());
+  myName = $("#char-name").html();
 
   bossHP = parseInt($("#boss-health").html());
   bossOriginalHP = parseInt($("#boss-originalhp").html());
@@ -56,6 +67,7 @@ function updateVariables() {
   bossCoolInterval = parseInt($("#boss-specialInterval").html());
   bossCurrentCool = parseInt($("#boss-cooldown").html());
   bossID = parseInt($("#boss-id").html());
+  bossName = $("#boss-name").html();
 }
 
 function evaluateBossSpecial(defense) {
@@ -130,8 +142,7 @@ function updateNarrator(attack, bossAttack, defense, heal) {
 
 function evaluateGameStatus(myHealth, bossHealth) {
   if (myHealth <= 0) {
-    // location.href = "/gameover";
-    $.get("/api/scores10", function(data, status){
+    $.get("/api/scores10", function(data) {
       var lowestHighScore = JSON.stringify(data[0].score);
 
       if (lowestHighScore > myScore) {

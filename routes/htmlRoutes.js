@@ -12,7 +12,10 @@ module.exports = function(app) {
   });
 
   app.get("/gameover", function(req, res) {
-    db.HighScores.findAll({}).then(function(data) {
+    db.HighScores.findAll({
+      limit: 10,
+      order: [["score", "DESC"]]
+    }).then(function(data) {
       var hbsObject = {
         score: data
       };

@@ -19,13 +19,13 @@ VALUES
 INSERT INTO highscores 
     (name, characterUsed, score, createdAt, updatedAt) 
 VALUES 
-    ('John Doe', 'Omar Little', 500, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 450, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 400, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 350, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 325, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 300, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 270, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 250, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 220, sysdate(), sysdate()),
-    ('John Doe', 'Omar Little', 200, sysdate(), sysdate());
+    ('SEED', 'Omar Little', 50, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 45, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 40, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 35, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 32, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 30, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 27, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 25, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 22, sysdate(), sysdate()),
+    ('SEED', 'Omar Little', 20, sysdate(), sysdate());
