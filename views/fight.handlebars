@@ -7,7 +7,9 @@
 
 <div class="row justify-content-between" id="HP">
     <div class="col-4 text-center">
-      <strong>Health Points</strong>(Player One):
+      {{#mycharacter}}{{name}}<br>
+      <strong>Health Points</strong>:
+      {{/mycharacter}}
       <p id="my-health">{{hp}}</p>
     </div>
     <div class="col-4 text-center">
@@ -15,8 +17,8 @@
       <p id="score">{{score}}</p>  
     </div>
     <div class="col-4 text-center">
-      {{#bosscharacter}}
-      <strong>Health Points</strong>(Boss):
+      {{#bosscharacter}}{{name}}<br>
+      <strong>Health Points</strong>:
       <p id="boss-health">{{health}}</p>
       {{/bosscharacter}}
     </div>
