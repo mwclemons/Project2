@@ -1,21 +1,24 @@
 {
   "development": {
-    "username": "root",
-    "password": "snizz11bre",
-    "database": "fightClub",
-    "host": "localhost",
+    "username": "ori1nr9pbu6yp92f",
+    "password": "s5aueseqbkjlw07j",
+    "database": "v31an2wusobcevp7",
+    "host": "kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
+    "username": "ori1nr9pbu6yp92f",
+    "password": "s5aueseqbkjlw07j",
+    "database": "v31an2wusobcevp7",
+    "host": "kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "ori1nr9pbu6yp92f",
+    "password": "s5aueseqbkjlw07j",
+    "database": "v31an2wusobcevp7",
+    "host": "kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
